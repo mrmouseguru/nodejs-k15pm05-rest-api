@@ -17,7 +17,9 @@ export default class App {
 
    let res =  await fetch("/api/text");//return a promise + response
    let text = await res.text();//promise + text data
+   let res2 = await fetch("/api/students/mchang");
+   let obj = await res2.json();
    document.querySelector("#results")
-   .textContent = text;
+   .textContent = `${text}\n${obj.givenName} ${obj.surname}`;
   }
 }
