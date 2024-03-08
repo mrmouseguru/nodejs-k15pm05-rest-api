@@ -3,6 +3,7 @@ export default class Student {
   constructor(data) {
     //compy all key/values from data to this
     Object.assign(this, data);
+    this._uri = `/api/students/${this.id}`;
   }
 
   static async load(id){
@@ -12,7 +13,7 @@ export default class Student {
   }
 
   async listCourse(){
-    let res = await fetch("/api/students/mchang/courses");
+    let res = await fetch(`${this._uri}/courses`);
     let json =  await res.json();
     return json.courses;
   }
