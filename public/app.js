@@ -21,5 +21,12 @@ export default class App {
    let obj = await res2.json();
    document.querySelector("#results")
    .textContent = `${text}\n${obj.givenName} ${obj.surname}`;
+
+   let res3 = await fetch("/api/students/mchang");
+   let obj2 = await res3.json();
+
+   let student = new Student(obj2);
+
+   console.log(student);
   }
 }
