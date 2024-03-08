@@ -33,5 +33,8 @@ export default class App {
    console.log(student2);
    let courses = await student2.listCourse();
    console.log(courses);
+
+   await student2.declare("CS");
+   console.log(student2);
   }
 }
